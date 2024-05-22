@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #eee;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    height: 65px;
+    background-color: #6a8dff;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo h4 {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    letter-spacing: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav li a {
+    color: #eee;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: #fff;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #eee;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: #fff;
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg) translate(0, 1px);
+    background-color: #fff;
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+/* Responsive Breakpoint */
+
+/* untuk tablet */
+@media screen and ( max-width: 768px ) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+
+/* untuk mobile */
+@media screen and ( max-width: 576px ) {
+    nav ul {
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80%;
+        background-color: #6a8dff;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: -1;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: 1s;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
